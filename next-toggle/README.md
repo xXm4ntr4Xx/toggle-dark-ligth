@@ -1,4 +1,4 @@
-Guide to create a toggle button
+Guide to create a toggle button with next.js
 1. Install tailwindss on your project
 
 2. Clear your index.js/tsx file
@@ -6,6 +6,24 @@ Guide to create a toggle button
 
 3. Inside tailwind.config.js add inside module exports 
    - darkMode:'class',
+      example of final tailwind.config.js file:
+      
+      ////////
+      module.exports = {
+  //target the dark mode on this project
+  darkMode:'class',//fo m toggle manually between dark/ligth mode
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+////////
+
+
 
 
 4. Install next-themes package
