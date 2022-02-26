@@ -1,27 +1,39 @@
-# Next.js + Tailwind CSS Example
+Guide to create a toggle button
+1. Install tailwindss on your project
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+2. Clear your index.js/tsx file
 
-## Preview
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+3. Inside tailwind.config.js add inside module exports 
+   - darkMode:'class',
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-## Deploy your own
+4. Install next-themes package
+   - npm i next-themes
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+5. Go on app.js/tsx and do the following action:
+  import {ThemeProvider} from 'next-themes and wrap the <Component {...pageProps}/> with the <ThemeProvide> component we
+   import
+  
+  
+6. create the use theme function   const{theme,setThemes}=useTheme()
+  
+  
+7. create the button on index.js/tsx and inside the button create a text that contain any text set by the conditional
+  render{theme === 'light ? 'Dark':'Light'}
+  
+8. style the button to have different color on dark and light mode
+  
+  
+9.add the onclick function to the button
+  - onClick={()=>setTheme(theme==='light'?'dark':'light')
+  
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+10. Last thing is to add useState and useEffect hooks to help server understand how we set the theme avoid error on console
+  const[mounted,setMounted] =useState(false)
+  useEffect(()=>setMounted(true),[])
+  
+  if(!mounted) return null , else return the entire index.tsk return value
+  
+  
